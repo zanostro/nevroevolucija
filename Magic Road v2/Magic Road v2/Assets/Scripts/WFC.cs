@@ -9,8 +9,8 @@ public class WFC : MonoBehaviour
     public int nornalCounter = 0;
     public int constructorCounter = 0;
 
-    private int semiNormals = 5;
-    private int constructors = 5;
+    private int semiNormals = 7;
+    private int constructors = 7;
   
 
 
