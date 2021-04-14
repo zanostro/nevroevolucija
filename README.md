@@ -5,6 +5,8 @@ Zaradi visoke programske zahtevnosti, se naj bi simulacija vedno izvajala v notr
 (pravilen izgled konfiguracije je na sliki "privailnaKonfiguracijaZaZagonSimulacije")
 Ob zagonu projekta prek urejevalnika lahko Unity izpiše napako, v taki situaciji je potrebno samo pritisniti gumb quit in ponovno zagnati projekt
 
+V projektu se tudi nahaja installer za Unity
+
 Kako zagnati:
  1. zgoraj pritisniti gumb play
  2. pogled (zgoraj levod nad prikazom same igre) iz Game nastaviti na Scene (na tak način se lahko prosto opazujemo dogajanje in je veliko man stresno za računalnik)
