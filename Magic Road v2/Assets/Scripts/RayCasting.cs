@@ -15,8 +15,8 @@ public class RayCasting : MonoBehaviour
     public static int CarCounter = 0;
     public LayerMask mask;
 
-
-    public float maxDistance = 100;
+    public float forwardMaxDistance;
+    public float normalMaxDistance;
     private int rayCount = Global.rayCount;
     
 
@@ -38,8 +38,6 @@ public class RayCasting : MonoBehaviour
 
         global.distances = new float[rayCount];
 
-
-        int[] layerSizes = {rayCount, 5, 2};
 
     }
 
@@ -74,15 +72,35 @@ public class RayCasting : MonoBehaviour
         Ray ray1 = new Ray(transform.position, newVector);
 
         RaycastHit hitInfo;
-        if (Physics.Raycast(ray1, out hitInfo, maxDistance, mask))
+
+        //za sprednji ray
+        if (i == rayCount - 1)
         {
-            if(drawLines) Debug.DrawLine(ray1.origin, hitInfo.point, Color.red);
+            if (Physics.Raycast(ray1, out hitInfo, forwardMaxDistance, mask))
+            {
+                if (drawLines) Debug.DrawLine(ray1.origin, hitInfo.point, Color.red);
+            }
+            else
+            {
+                if (drawLines) Debug.DrawLine(ray1.origin, ray1.origin + ray1.direction * forwardMaxDistance, Color.green);
+            }
+            global.distances[i] = hitInfo.distance / normalMaxDistance;
+
         }
+
+        //za ostale
         else
         {
-             if(drawLines) Debug.DrawLine(ray1.origin, ray1.origin + ray1.direction * 100, Color.green);
+            if (Physics.Raycast(ray1, out hitInfo, normalMaxDistance, mask))
+            {
+                if (drawLines) Debug.DrawLine(ray1.origin, hitInfo.point, Color.red);
+            }
+            else
+            {
+                if (drawLines) Debug.DrawLine(ray1.origin, ray1.origin + ray1.direction * normalMaxDistance, Color.green);
+            }
+            global.distances[i] = hitInfo.distance / normalMaxDistance;
         }
-        global.distances[i] = hitInfo.distance / maxDistance;
     }
 }
 
