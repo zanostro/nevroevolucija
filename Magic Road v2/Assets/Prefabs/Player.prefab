@@ -553,7 +553,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
-  forwardMaxDistance: 20
+  forwardMaxDistance: 15
   normalMaxDistance: 5
 --- !u!1 &2334305118593090297
 GameObject:
